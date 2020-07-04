@@ -1,0 +1,29 @@
+version: '3'
+services:
+  cms:
+    build:
+      context: ../../
+      dockerfile: ./Dockerfile.local
+    volumes:
+      - '../../cms/storage:/var/www/html/storage/'
+      - '../../cms/addons:/var/www/html/addons/'
+      - '../../cms/config:/var/www/html/config/'
+    environment:
+      COCKPIT_DATABASE_SERVER: 'mongodb://db:27017'
+      COCKPIT_DATABASE_NAME: cockpit_local
+      COCKPIT_ENV: 'local'
+    ports:
+      - "9090:80"
+    networks:
+      - cockpitnetwork
+    depends_on:
+      - db
+  db:
+    image: mongo:4.0.4
+    volumes:
+      - '../../cms/db:/data/db'
+    networks:
+      - cockpitnetwork
+networks:
+  cockpitnetwork:
+    driver: bridge

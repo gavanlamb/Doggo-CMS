@@ -1,0 +1,4 @@
+.app-header-topbar .app-name:after {
+  content: "STG";
+  background-color: #e28327;
+}

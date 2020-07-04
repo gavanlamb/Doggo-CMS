@@ -1,0 +1,8 @@
+FROM agentejo/cockpit:0.9.3
+
+COPY --chown=www-data:www-data ./cms/modules/Collections/assets/field-collectionlink.tag /var/www/html/modules/Collections/assets/field-collectionlink.tag
+COPY --chown=www-data:www-data ./cms/modules/Collections/assets/entries-batchedit.tag /var/www/html/modules/Collections/assets/entries-batchedit.tag
+
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
+EXPOSE 8080

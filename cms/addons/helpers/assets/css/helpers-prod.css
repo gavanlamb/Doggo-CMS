@@ -1,0 +1,4 @@
+.app-header-topbar .app-name:after {
+  content: "PROD";
+  background-color: #da314b;
+}

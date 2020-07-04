@@ -1,0 +1,5 @@
+.app-header-topbar .app-name:after {
+  content: "DEV";
+  background-color: #fffceb;
+  color: #e28327;
+}
